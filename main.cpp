@@ -26,13 +26,14 @@ int main(int argc, char *argv[])
 {
 	signal(SIGINT, breakc); // SIGINT信号处理
 	FLUSH_SIZE;
-	if (argc == 3 || argc == 4)
+	if (argc == 3)
 	{
-		msgbox("欢迎使用mirai-api-http-cpp", "欢迎使用mirai-api-http-cpp");
-		if (argc == 3)
-			httpC(argv[1], argv[2]);
-		else if (argc == 4)
-			httpC(argv[1], argv[2], argv[3]);
+		httpC(argv[1], argv[2]);
+		return 0;
+	}
+	else if (argc == 4)
+	{
+		httpC(argv[1], argv[2], argv[3]);
 		return 0;
 	}
 	else

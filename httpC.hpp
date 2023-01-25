@@ -11,7 +11,7 @@
 using namespace std;
 using namespace httplib;
 
-#define host "192.168.1.2"
+#define host "localhost"
 #define port 8080
 httplib::Client cli(host, port);
 auto res = cli.Get("/");
@@ -28,7 +28,7 @@ std::string getLevelStr(int level)
 
 std::string formatJson(string json)
 {
-	string result = "\e[97m";
+	string result = "\e[0m\e[30m";
 	int level = 0;
 	for (string::size_type index = 0; index < json.size(); index++)
 	{
@@ -60,6 +60,11 @@ std::string formatJson(string json)
 		case ':':
 			result += ((std::string) "\e[46m" + c);
 			break;
+		case ' ':
+		case '\t':
+		case '\n':
+		case '\r':
+			break;
 		default:
 			result += ((std::string) "\e[42m" + c);
 			break;
@@ -90,7 +95,7 @@ int httpC(std::string path = "/about", std::string way = "get", std::string body
 	}
 	if (res)
 	{
-		text += "\nHTTP 代码: " + std::to_string(res->status) + "\nHTTP 信息: " + httplib::to_string(res.error()) + "\nHTTP 数据: \n" + formatJson(res->body);
+		text += "\n\e[0mHTTP 代码: " + std::to_string(res->status) + "\nHTTP 信息: " + httplib::to_string(res.error()) + "\nHTTP 数据: \n" + formatJson(res->body);
 		msgbox("httpC", text, "关闭");
 		return 0;
 	}
