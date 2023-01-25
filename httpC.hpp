@@ -26,8 +26,13 @@ std::string getLevelStr(int level)
 	return levelStr;
 }
 
-std::string formatJson(string json)
+std::string formatJson(string text)
 {
+	std::string json;
+	for (int i = 0; text[i] != '\0'; i++)
+		if (text[i] != ' ' && text[i] != '\n' && text[i] != '\r')
+			json += text[i];
+	json += '\0';
 	string result = "\e[0m\e[30m";
 	int level = 0;
 	for (string::size_type index = 0; index < json.size(); index++)
@@ -59,11 +64,6 @@ std::string formatJson(string json)
 			break;
 		case ':':
 			result += ((std::string) "\e[46m" + c);
-			break;
-		case ' ':
-		case '\t':
-		case '\n':
-		case '\r':
 			break;
 		default:
 			result += ((std::string) "\e[42m" + c);
