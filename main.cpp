@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		msgbox("帮助", "用法: ./mcc <路径> <请求方式 = get> [请求正文(POST)='\\0']\n示例: ./mcc /about get", "知道了");
+		msgbox("帮助", "用法: ./mcc <路径> <请求方式> [请求正文(POST)='\\0']\n示例:\n./mcc /about get\n./mcc /verify post '{\"verifyKey\": \"123456\"}'", "知道了");
 		return 1;
 	}
 	return -1;
