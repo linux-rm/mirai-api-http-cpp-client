@@ -16,8 +16,8 @@ void breakc(int sig)
 	if (sig == SIGINT)
 	{
 		std::cout
-			<< REAST << std::endl
-			<< "\e]0;shell!\a" << flush; // 恢复终端和标题
+		    << REAST << std::endl
+		    << "\e]0;shell!\a" << flush; // 恢复终端和标题
 		exit(0);
 	}
 }
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		msgbox("帮助", "用法: ./mcc <路径> <请求方式> [请求正文(POST)='\\0']\n示例:\n./mcc /about get\n./mcc /verify post '{\"verifyKey\": \"123456\"}\n\n路径,请求方式和正文 请参阅官方文档'", "继续");
+		msgbox("帮助", "用法: ./mcc <路径> <请求方式> [请求正文(POST)='\\0']\n示例:\n./mcc /about get\n./mcc /verify post '{\"verifyKey\": \"123456\"}\n\n路径,请求方式和正文 请参阅官方文档", "继续");
 		return 1;
 	}
 	return -1;

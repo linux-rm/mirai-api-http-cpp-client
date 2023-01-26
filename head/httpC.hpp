@@ -76,8 +76,8 @@ std::string formatJson(string text)
 int httpC(std::string path = "/about", std::string way = "get", std::string body = "\0", std::string type = "application/json")
 {
 	std::string text = ((std::string) "主机:端口:" + host + ':' + std::to_string(port) +
-						"\nHTTP 方式: " + way +
-						"\nHTTP 路径: " + path);
+			    "\nHTTP 方式: " + way +
+			    "\nHTTP 路径: " + path);
 	if (way == "get")
 	{
 		res = cli.Get(path);
