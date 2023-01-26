@@ -187,7 +187,7 @@ void full(string color = "\e[0m")
 	}
 }
 
-int msgbox(string title /*标题*/ = "标题", string message /*信息*/ = "信息", string button /*按钮*/ = OK, std::string color = "\e[44m\e[97m", int X /*对话框左上角起始位置X坐标*/ = -1, int Y /*对话框左上角起始位置Y坐标*/ = -1, int W /*对话框长度*/ = (SIZE.ws_col / 2), int H = /*对话框宽度*/ (SIZE.ws_row / 2)) // 对话框函数
+int msgbox(string title /*标题*/ = "标题", string message /*信息*/ = "信息", string button /*按钮*/ = OK, std::string color = "\e[44m\e[97m", int X /*对话框左上角起始位置X坐标*/ = -1, int Y /*对话框左上角起始位置Y坐标*/ = -1, int W /*对话框长度*/ = (SIZE.ws_col * 2 / 3), int H = /*对话框宽度*/ (SIZE.ws_row * 2 / 3)) // 对话框函数
 {
 	std::cout << "\e]0;" << title << "\a" << SETUP << flush; // 标题和初始化
 	full(color);											 // 使用蓝色背景亮白色填充屏幕

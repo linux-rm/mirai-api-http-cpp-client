@@ -30,7 +30,7 @@ std::string formatJson(string text)
 {
 	std::string json;
 	for (int i = 0; text[i] != '\0'; i++)
-		if (text[i] != ' ' && text[i] != '\n' && text[i] != '\r')
+		if (text[i] != ' ' && text[i] != '\n' && text[i] != '\r' && text[i] != '\t')
 			json += text[i];
 	json += '\0';
 	string result = "\e[0m\e[30m";
@@ -85,7 +85,7 @@ int httpC(std::string path = "/about", std::string way = "get", std::string body
 	else if (way == "post")
 	{
 		res = cli.Post(path, body, type);
-		text += ("\nHTTP 请求: " + formatJson(body));
+		text += ("\nHTTP 请求: \n" + formatJson(body));
 	}
 	else
 	{
