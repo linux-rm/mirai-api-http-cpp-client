@@ -73,11 +73,11 @@ std::string formatJson(string text)
 	return (result + "\e[0m");
 }
 
-int httpC(std::string path = "/about", std::string way = "get", std::string body = "\0", std::string type = "application/json")
+int httpC(std::string path , std::string way , std::string body = "\0", std::string type = "application/json")
 {
-	std::string text = ((std::string) "主机:端口:" + host + ':' + std::to_string(port) +
-			    "\nHTTP 方式: " + way +
-			    "\nHTTP 路径: " + path);
+	std::cerr << "主机:端口: " << host << ':' << port
+			  << "\nHTTP 方式: " << way
+			  << "\nHTTP 路径: " << path;
 	if (way == "get")
 	{
 		res = cli.Get(path);
@@ -85,22 +85,22 @@ int httpC(std::string path = "/about", std::string way = "get", std::string body
 	else if (way == "post")
 	{
 		res = cli.Post(path, body, type);
-		text += ("\nHTTP 请求: \n" + formatJson(body));
+	std::cerr << "\nHTTP 请求: \n" << formatJson(body);
 	}
 	else
 	{
-		text += "\n\a\e[41m\e[97m请求方式无效!\n试试 help 参数";
-		msgbox("httpC", text, "退出", "\e[41m\e[97m");
+		std::cerr << "\n\a\e[41m\e[97m请求方式无效!\n试试 help 参数";
 		return 22;
 	}
 	if (res)
 	{
-		text += "\n\e[0mHTTP 代码: " + std::to_string(res->status) + "\nHTTP 信息: " + httplib::to_string(res.error()) + "\nHTTP 数据: \n" + formatJson(res->body);
-		msgbox("httpC", text, "关闭");
+		std::cerr << "\n\e[0mHTTP 代码: " << res->status 
+				  << "\nHTTP 信息: " << httplib::to_string(res.error())
+				  << "\nHTTP 数据: \n";
+		std::cout << formatJson(res->body);
 		return 0;
 	}
 
-	text += "\n\a\e[41m\e[97m网络错误!";
-	msgbox("httpC", text, "退出", "\e[41m\e[97m");
+	std::cerr << "\n\a\e[41m\e[97m网络错误!";
 	return 13;
 }
