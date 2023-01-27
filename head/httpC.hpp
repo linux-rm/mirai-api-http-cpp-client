@@ -14,7 +14,7 @@ using namespace httplib;
 #define host "0.0.0.0"
 #define port 8080
 httplib::Client cli(host, port);
-auto res = cli.Get("/");
+httplib::Result res = cli.Get("/");
 
 std::string getLevelStr(int level)
 {
