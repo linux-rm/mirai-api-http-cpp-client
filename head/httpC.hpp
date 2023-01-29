@@ -97,10 +97,10 @@ int httpC(std::string path , std::string way , std::string body = "\0", std::str
 		std::cerr << "\n\e[0mHTTP 代码: " << res->status 
 				  << "\nHTTP 信息: " << httplib::to_string(res.error())
 				  << "\nHTTP 数据: \n";
-		std::cout << formatJson(res->body);
+		std::cout << formatJson(res->body) << std::endl;
 		return 0;
 	}
 
-	std::cerr << "\n\a\e[41m\e[97m网络错误!";
+	std::cerr << "\n\a\e[41m\e[97m网络错误!" << std::endl;
 	return 13;
 }
