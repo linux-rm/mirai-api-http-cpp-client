@@ -34,7 +34,9 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		std::cerr << "用法: ./mcc <路径> <请求方式> [请求正文(POST)='\\0']\n示例:\n./mcc /about get\n./mcc /verify post '{\"verifyKey\": \"123456\"}\n\n路径,请求方式和正文 请参阅官方文档";
+		std::cerr << "用法: " << argv[0] << " <路径> <请求方式> [请求正文(POST)='\\0']\n示例:\n"
+				  << argv[0] << " /about get\n"
+				  << argv[0] << " /verify post '{\"verifyKey\": \"123456\"}\n\n路径,请求方式和正文 请参阅官方文档" << std::endl;
 		return 1;
 	}
 	return -1;

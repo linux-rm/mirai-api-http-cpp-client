@@ -4,7 +4,7 @@
 #  > QQ:1158290244
 # > QQ IT group:951234938
 # ************************************************************************/
-EXECUTABLE:= mcc
+EXECUTABLE:= test
 LIBDIR:=
 LIBS:=
 INCLUDES:=.

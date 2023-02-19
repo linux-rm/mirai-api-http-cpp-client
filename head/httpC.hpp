@@ -73,7 +73,7 @@ std::string formatJson(string text)
 	return (result + "\e[0m");
 }
 
-int httpC(std::string path , std::string way , std::string body = "\0", std::string type = "application/json")
+int httpC(std::string path, std::string way, std::string body = "\0", std::string type = "application/json")
 {
 	std::cerr << "主机:端口: " << host << ':' << port
 			  << "\nHTTP 方式: " << way
@@ -85,7 +85,8 @@ int httpC(std::string path , std::string way , std::string body = "\0", std::str
 	else if (way == "post")
 	{
 		res = cli.Post(path, body, type);
-	std::cerr << "\nHTTP 请求: \n" << formatJson(body);
+		std::cerr << "\nHTTP 请求: \n"
+				  << formatJson(body);
 	}
 	else
 	{
@@ -94,7 +95,7 @@ int httpC(std::string path , std::string way , std::string body = "\0", std::str
 	}
 	if (res)
 	{
-		std::cerr << "\n\e[0mHTTP 代码: " << res->status 
+		std::cerr << "\n\e[0mHTTP 代码: " << res->status
 				  << "\nHTTP 信息: " << httplib::to_string(res.error())
 				  << "\nHTTP 数据: \n";
 		std::cout << formatJson(res->body) << std::endl;
