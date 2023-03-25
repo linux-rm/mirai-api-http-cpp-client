@@ -226,10 +226,10 @@ localhost:8080`/verify`
 }
 ```
 
-| 名字    | 类型   | 举例                | 说明                               |
-| ------- | ------ | ------------------- | ---------------------------------- |
-| code    | Int    | 0                   | 返回[状态码](../api/API.md#状态码) |
-| session | String | "UnVerifiedSession" | 你的session key                    |
+| 名字    | 类型   | 举例                | 说明            |
+| ------- | ------ | ------------------- | --------------- |
+| code    | Int    | 0                   | 返回状态码      |
+| session | String | "UnVerifiedSession" | 你的session key |
 
 
  session key 是使用以下方法必须携带的
@@ -384,7 +384,7 @@ fetch(new Request('http://localhost:8080/verify',{
 [POST] /sendFriendMessage
 ```
 
-**本接口为[POST]请求, 参数格式为`application/json`**
+**本接口为\[POST\]请求, 参数格式为`application/json`**
 
 通用接口定义: [发送好友消息](https://github.com/project-mirai/mirai-api-http/blob/master/docs/api/API.md#%E5%8F%91%E9%80%81%E5%A5%BD%E5%8F%8B%E6%B6%88%E6%81%AF)
 
